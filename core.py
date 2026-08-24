@@ -173,7 +173,7 @@ def _call_with_retry(fn: Callable[[], str], attempts: int = 3, base_delay: float
     raise RuntimeError(f"Summarization failed after {attempts} attempts: {last_err}") from last_err
 
 
-def _generate(client, prompt: str, model: str = "gemini-2.5-flash") -> str:
+def _generate(client, prompt: str, model: str = "gemini-3.6-flash") -> str:
     def call():
         response = client.models.generate_content(model=model, contents=prompt)
         return response.text
